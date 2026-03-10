@@ -3,7 +3,12 @@
 
 long factorial(int n)
 {
-    return n * factorial(n - 1);
+    if (n>1) {
+        return n * factorial(n - 1);
+     }
+    else {
+        return n;
+    }
 }
 
 int main(int argc, char* argv[])
