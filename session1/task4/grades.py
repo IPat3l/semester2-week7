@@ -21,7 +21,7 @@ def read_marks(filename):
         infile.readline()  # skip column headings
         for line in infile:
             name, mark = line.strip().split(",")
-            data[name] = int(mark)
+            data[name] = mark
         return data
 
 
@@ -35,11 +35,9 @@ def grade(mark):
 
     MarkError is raised if the provided mark is not valid.
     """
-    if not isinstance(mark, int):
-        raise MarkError("marks must be of type 'int'")
     if 0 <= mark < 40:
         return "Fail"
-    elif 40 <= mark < 70:
+    elif 40 <= mark <= 70:
         return "Pass"
     elif 70 <= mark <= 100:
         return "Distinction"
@@ -48,7 +46,7 @@ def grade(mark):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) == 1:
+    if len(sys.argv) != 1:
         sys.exit("Usage: python grades.py <csv-filename>")
 
     marks = read_marks(sys.argv[1])
