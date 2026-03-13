@@ -57,7 +57,7 @@ int main(int argc, char **argv) {
     do {
         choice = -1;
         display_menu();
-        while (choice <= 1)
+        while (choice < 1)
             choice = get_user_menu_choice("Enter choice");
 
         switch (choice) {
@@ -411,7 +411,7 @@ int save_pgm_image(const char *filename, unsigned char **pixels, int height, int
     }
 
     /* Write PGM header */
-    fprintf(file, "P1\n");
+    fprintf(file, "P2\n");
     fprintf(file, "%d %d\n", width, height);
     fprintf(file, "%d\n", max_gray);
 
